@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-security-web-app" />
+        <module name="spring-boot-aad-msal-starter" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="spring-boot-aad-msal-starter" options="-parameters" />
       <module name="spring-security-web-app" options="-parameters" />
     </option>
   </component>
