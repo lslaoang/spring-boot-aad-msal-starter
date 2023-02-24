@@ -3,16 +3,11 @@
 
 package com.microsoft.azure.springsecuritywebapp;
 
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.security.Principal;
 
 @Controller
 public class SecurePageController {
@@ -20,15 +15,14 @@ public class SecurePageController {
     @RequestMapping("/secure_page")
     public ModelAndView securePage(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        ModelAndView mav = new ModelAndView("secure_page");
+        System.out.println(authentication.getCredentials());
 
-        return mav;
+        return new ModelAndView("secure_page");
     }
 
     @RequestMapping("/")
     public ModelAndView indexPage() {
-        ModelAndView mav = new ModelAndView("index");
 
-        return mav;
+        return new ModelAndView("index");
     }
 }
